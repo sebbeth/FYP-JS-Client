@@ -12,4 +12,8 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
   }
 
+  setAPIMode(): void {
+    console.log('hosted');
+  }
+
 }

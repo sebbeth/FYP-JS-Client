@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a routerLink="/dashboard" class="navbar-brand">Grade Calculator</a>
+    <a routerLink="/dashboard" class="navbar-brand">FYP</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,6 +10,14 @@
       <a routerLink="/setup" class="btn btn-outline-success my-2 my-sm-0" >Create Account</a>
       <a href="" class="btn btn-outline-success my-2 my-sm-0">Log In</a>
       <a routerLink="/account" class="btn btn-outline-success my-2 my-sm-0" >Account</a>
-
+      <span class="m-2">API Mode</span>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> Hosted
+  </label>
+  <label class="btn btn-secondary">
+    <input (click)="setAPIMode()" type="radio" name="options" id="option2" autocomplete="off"> Local
+  </label>
+</div>
     </div>
   </nav>
