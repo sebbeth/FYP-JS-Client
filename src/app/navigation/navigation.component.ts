@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-navigation',
@@ -7,13 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  apiMode: number;
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.apiMode = this.getAPIMode();
   }
 
-  setAPIMode(): void {
-    console.log('hosted');
+  setAPIMode(mode): void {
+    this.dataService.setAPIMode(mode);
+    this.apiMode = this.getAPIMode();
+  }
+
+  getAPIMode(): number {
+    return this.dataService.getAPIMode();
   }
 
 }

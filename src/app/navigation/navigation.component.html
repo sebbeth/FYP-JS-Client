@@ -7,17 +7,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
       </ul>
-      <a routerLink="/setup" class="btn btn-outline-success my-2 my-sm-0" >Create Account</a>
-      <a href="" class="btn btn-outline-success my-2 my-sm-0">Log In</a>
-      <a routerLink="/account" class="btn btn-outline-success my-2 my-sm-0" >Account</a>
+    <!--  <a routerLink="/setup" class="btn btn-outline-success my-2 my-sm-0" >Create Account</a> -->
+
       <span class="m-2">API Mode</span>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked> Hosted
-  </label>
-  <label class="btn btn-secondary">
-    <input (click)="setAPIMode()" type="radio" name="options" id="option2" autocomplete="off"> Local
-  </label>
-</div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button [ngClass]="{'btn-outline-primary': apiMode===0}" (click)="setAPIMode(0)" type="button" class="btn ">Local</button>
+        <button [ngClass]="{'btn-outline-primary': apiMode===1}" (click)="setAPIMode(1)" type="button" class="btn">Hosted</button>
+      </div>
     </div>
   </nav>
