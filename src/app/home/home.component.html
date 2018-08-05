@@ -2,9 +2,12 @@
 <app-navigation></app-navigation>
 
 <a routerLink="/new" class='btn btn-primary'>New Input set</a>
-
+<button (click)="addComp()" class='btn btn-secondary'>Add Comparison</button>
 Input data sets
 <ul class="list-group m-4">
+  <li *ngFor="let result of results">
+
+  </li>
   <li class="list-group-item">Cras justo odio</li>
   <li class="list-group-item">Dapibus ac facilisis in</li>
   <li class="list-group-item">Morbi leo risus</li>

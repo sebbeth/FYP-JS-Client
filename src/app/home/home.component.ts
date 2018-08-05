@@ -8,13 +8,17 @@ import { DataService } from '../data.service';
 })
 export class HomeComponent implements OnInit {
 
+  results: Object[];
+
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getResultWithId(10);
+    //this.results.push(this.dataService.getResultWithId(10));
+    console.log(this.dataService.getResultWithId(10));
   }
 
-   newInputData(): void {
-    console.log('new');
+  addComp(): void {
+    this.dataService.scheduleComparison('{"input_id":"1","parameters":{"foo":"bar"}}');
   }
+
 }

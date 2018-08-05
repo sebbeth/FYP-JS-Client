@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-new',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+  }
+
+
+  public uploadDataSet(): void {
+    let data = {
+      test:'test'
+    };
+    this.dataService.storeNewInputDataSet(1,data);
   }
 
 }

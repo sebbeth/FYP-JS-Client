@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest, HttpResponse } from '@angular/common/http';
 
 
 
   const localApiUrl = 'http://localhost/FYP-API/api.php';
   const hostedApiUrl = 'https://something.com/api.php';
 
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+  // headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
 @Injectable()
 export class DataService {
 
 
   apiMode = 0;
+
 
 
   constructor(private http: HttpClient) { }
@@ -47,9 +53,34 @@ export class DataService {
   public getResultWithId(id): any {
 
   this.http.get(this.getAPIUrl() + '/comparison/' + id).subscribe(data => {
-    console.log(data);
+   console.log(data);
     return data;
   });
-}
+  return null;
+  }
+
+  public scheduleComparison(input): number {
+    console.log('schedule');
+    this.http.post(this.getAPIUrl() + '/comparison/', input, httpOptions);
+    return 5;
+  }
+
+
+  public storeNewInputDataSet(accountId, data): void {
+
+    const req = this.http.post(this.getAPIUrl() + '/upload/', {
+     account: accountId,
+     data: data
+   },httpOptions)
+     .subscribe(
+       res => {
+         console.log(res);
+       },
+       err => {
+         console.log("Error occured");
+       }
+     );
+
+  }
 
 }
