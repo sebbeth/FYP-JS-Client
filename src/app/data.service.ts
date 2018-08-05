@@ -68,15 +68,16 @@ export class DataService {
 
   public storeNewInputDataSet(accountId, data): void {
 
+    // Send the post request
     const req = this.http.post(this.getAPIUrl() + '/upload/', {
      account: accountId,
      data: data
    },httpOptions)
-     .subscribe(
+     .subscribe( // Get the response
        res => {
          console.log(res);
        },
-       err => {
+       err => { // Display errors
          console.log("Error occured");
        }
      );
