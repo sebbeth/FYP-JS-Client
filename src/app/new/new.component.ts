@@ -10,14 +10,17 @@ export class NewComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
+  textFieldContent = '{"example":"input"}';
+
   ngOnInit() {
   }
 
 
   public uploadDataSet(): void {
-    let data = {
-      test:'test'
-    };
+    if (this.textFieldContent === '') {
+      return null;
+    }
+    let data = JSON.parse(this.textFieldContent);
     this.dataService.storeNewInputDataSet(1,data);
   }
 

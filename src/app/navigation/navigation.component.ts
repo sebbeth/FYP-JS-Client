@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
 export class NavigationComponent implements OnInit {
 
   apiMode: number;
+
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -22,6 +23,10 @@ export class NavigationComponent implements OnInit {
 
   getAPIMode(): number {
     return this.dataService.getAPIMode();
+  }
+
+  getAccountId(): number {
+    return this.dataService.getAccountId();
   }
 
 }

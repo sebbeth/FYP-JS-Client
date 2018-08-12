@@ -4,16 +4,11 @@
 <a routerLink="/new" class='btn btn-primary'>New Input set</a>
 <button (click)="addComp()" class='btn btn-secondary'>Add Comparison</button>
 Input data sets
-<ul class="list-group m-4">
-  <li *ngFor="let result of results">
-
-  </li>
-  <li class="list-group-item">Cras justo odio</li>
-  <li class="list-group-item">Dapibus ac facilisis in</li>
-  <li class="list-group-item">Morbi leo risus</li>
-  <li class="list-group-item">Porta ac consectetur ac</li>
-  <li class="list-group-item">Vestibulum at eros</li>
-</ul>
+<div class="row">
+  <div *ngFor="let input of inputSets">
+    <app-input-set [inputSet]="input"></app-input-set>
+  </div>
+</div>
 
 Results:
 <ul class="list-group m-4">

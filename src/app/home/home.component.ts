@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
+import { InputSetComponent } from './input-set/input-set.component';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs/observable/of';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +13,20 @@ import { DataService } from '../data.service';
 export class HomeComponent implements OnInit {
 
   results: Object[];
+  inputSets: string[];
+  test: string;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
     //this.results.push(this.dataService.getResultWithId(10));
     console.log(this.dataService.getResultWithId(10));
+//this.inputSets = this.dataService.getAllInputSets(1);
+
+    this.inputSets = this.dataService.getAllInputSets();
+    console.log(this.inputSets);
+  //  .subscribe(data => this.inputSets = data);
+    //console.log('OBJECTS' + this.inputSets.toString());
   }
 
   addComp(): void {

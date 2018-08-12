@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpRequest, HttpResponse } from '@angular/common/http';
-
+import { Observable } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
 
 
   const localApiUrl = 'http://localhost/FYP-API/api.php';
@@ -16,6 +18,10 @@ export class DataService {
 
 
   apiMode = 0;
+
+  testVal: string;
+
+  private
 
 
 
@@ -46,6 +52,11 @@ export class DataService {
     } else {
       return hostedApiUrl;
     }
+  }
+
+
+  public getAccountId(): number {
+    return 1; //TODO implement this
   }
 
   /***** API query functions *****/
@@ -81,7 +92,14 @@ export class DataService {
          console.log("Error occured");
        }
      );
+  }
 
+  public getAllInputSets(): string[] {
+
+      this.http.get<string[]>(this.getAPIUrl() + '/upload/').subscribe(data => {
+        this.testVal = data;
+      });
+      return this.testVal;
   }
 
 }
