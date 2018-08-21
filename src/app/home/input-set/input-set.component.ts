@@ -15,7 +15,6 @@ export class InputSetComponent implements OnInit {
 
   ngOnInit() {
     this.title = JSON.stringify(this.inputSet);
-    console.log('foo' + this.inputSet);
   }
 
   private edit(): void {

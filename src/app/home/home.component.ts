@@ -1,6 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 import { InputSetComponent } from './input-set/input-set.component';
+import { InputSet } from '../data-structures/InputSet';
+
+
+
 import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -13,7 +17,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class HomeComponent implements OnInit {
 
   results: Object[];
-  inputSets: string[];
+  inputSets: InputSet[];
   test: string;
 
   constructor(private dataService: DataService) { }
@@ -24,7 +28,7 @@ export class HomeComponent implements OnInit {
 //this.inputSets = this.dataService.getAllInputSets(1);
 
     this.inputSets = this.dataService.getAllInputSets();
-    console.log(this.inputSets);
+  //  console.log(this.inputSets);
   //  .subscribe(data => this.inputSets = data);
     //console.log('OBJECTS' + this.inputSets.toString());
   }

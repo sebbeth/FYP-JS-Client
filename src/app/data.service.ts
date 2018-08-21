@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpRequest, HttpResponse } from '
 import { Observable } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
-
+import { InputSet } from './data-structures/InputSet';
 
   const localApiUrl = 'http://localhost/FYP-API/api.php';
   const hostedApiUrl = 'https://something.com/api.php';
@@ -94,12 +94,31 @@ export class DataService {
      );
   }
 
-  public getAllInputSets(): string[] {
+  public getAllInputSets(): InputSet[] {
 
-      this.http.get<string[]>(this.getAPIUrl() + '/upload/').subscribe(data => {
-        this.testVal = data;
+
+    let first: InputSet = {
+      id: 1,
+      title: 'title',
+      data: 'this is the data'
+    }
+    let second: InputSet = {
+      id: 1,
+      title: 'title',
+      data: 'this is the data'
+    }
+
+    let output = [first,second];
+    let fromAPI = null;
+
+      this.http.get(this.getAPIUrl() + '/upload/').subscribe(data => {
+
+      fromAPI = data
+
       });
-      return this.testVal;
+      console.log(fromAPI);
+      //return this.testVal;
+      return output;
   }
 
 }
