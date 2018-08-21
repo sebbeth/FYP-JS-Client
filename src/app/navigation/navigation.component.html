@@ -14,5 +14,7 @@
         <button [ngClass]="{'btn-outline-primary': apiMode===0}" (click)="setAPIMode(0)" type="button" class="btn ">Local</button>
         <button [ngClass]="{'btn-outline-primary': apiMode===1}" (click)="setAPIMode(1)" type="button" class="btn">Hosted</button>
       </div>
+      <a routerLink="/profile"  class='btn btn-primary'>Profile</a>
+
     </div>
   </nav>

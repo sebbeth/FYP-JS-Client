@@ -2,7 +2,8 @@
 
 <app-navigation></app-navigation>
 
-<code>This will be where users enter data about the compute resource they wish to analyse.</code>
+<h2>Describe your system</h2>
+
 <br>
 <form>
   <div class="form-group">
@@ -11,5 +12,5 @@
 <input #textField="ngModel"  [(ngModel)]="textFieldContent" id='textField' name='textField' type="text" class="form-control">
 <p>{{textFieldContent}}</p>
 </div>
-<button (click)="uploadDataSet()" class='btn btn-success'>Upload</button>
+<button (click)="uploadDataSet()" class='btn btn-success'>Next</button>
 </form>

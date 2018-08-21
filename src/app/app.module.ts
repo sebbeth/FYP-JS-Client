@@ -18,7 +18,10 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ConceptComponent } from './concept/concept.component';
 import { HomeComponent } from './home/home.component';
 import { NewComponent } from './new/new.component';
-import { InputSetComponent } from './home/input-set/input-set.component'; // From https://github.com/bootsoon/ng-circle-progress
+import { InputSetComponent } from './new/input-set/input-set.component';
+import { ResultSetComponent } from './home/result-set/result-set.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ResultsComponent } from './results/results.component'; // From https://github.com/bootsoon/ng-circle-progress
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { InputSetComponent } from './home/input-set/input-set.component'; // Fro
     ConceptComponent,
     HomeComponent,
     NewComponent,
-    InputSetComponent
+    InputSetComponent,
+    ResultSetComponent,
+    ProfileComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
