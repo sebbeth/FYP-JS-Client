@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { InputSet } from '../data-structures/InputSet';
 
 @Component({
   selector: 'app-new',
@@ -12,7 +13,11 @@ export class NewComponent implements OnInit {
 
   textFieldContent = '{"example":"input"}';
 
+  inputSets: InputSet[];
+
   ngOnInit() {
+    this.inputSets = this.dataService.getAllInputSets();
+
   }
 
 

@@ -2,9 +2,15 @@
 
 <app-navigation></app-navigation>
 
-<h2>Describe your system</h2>
+<h2>Select the input sets you're going to use</h2>
 
 <br>
+
+<div class="row" *ngFor="let input of inputSets">
+  <app-input-set [inputSet]="input"></app-input-set>
+</div>
+
+<!--
 <form>
   <div class="form-group">
 
@@ -12,5 +18,5 @@
 <input #textField="ngModel"  [(ngModel)]="textFieldContent" id='textField' name='textField' type="text" class="form-control">
 <p>{{textFieldContent}}</p>
 </div>
-<button (click)="uploadDataSet()" class='btn btn-success'>Next</button>
-</form>
+<button class='btn btn-success'>Next</button>
+</form> -->
